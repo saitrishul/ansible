@@ -1,0 +1,14 @@
+-
+  name: Install software
+  hosts: all
+  tasks:
+  - name: Install software on ubuntu
+    apt:
+        name: "{{ item }}"
+        state: present
+    become: yes
+    with_items:
+        - nginx
+        - apache2
+        - vim
+    

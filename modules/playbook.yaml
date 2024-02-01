@@ -1,0 +1,9 @@
+-
+  name: My first playbook
+  hosts: dev
+  tasks: 
+    - name: Execute command date
+      command: date
+
+    - name: Create a file
+      command: touch trishul

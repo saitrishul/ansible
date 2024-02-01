@@ -1,0 +1,21 @@
+-
+  name: Play with a file
+  hosts: all
+  tasks:
+    - name: Create a file
+      file:
+          path: /etc/mac.txt
+          state: touch
+    - name: change the file ownership
+      file:
+          path: /etc/mac.txt  
+          mode: '644'
+    - name: copy mac.txt to /home/devops/win
+      copy:
+          src: /etc/mac.txt
+          dest: /home/devops/win/mac.txt
+          remote_src: yes
+    - name: delete /etc/mac.txt
+      file:
+          path: /etc/mac.txt
+          state: absent

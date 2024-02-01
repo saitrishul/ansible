@@ -1,0 +1,17 @@
+-
+  name: install packages
+  hosts: prod
+  tasks:
+  - name: install wget on ubuntu
+    apt:
+        name: wget
+        state: present
+    become: yes
+    when: ansible_os_family == "Debian"
+
+  - name: install nginx on ubuntu
+    apt:
+        name: nginx
+        state: present
+    become: yes
+    when: ansible_os_family == "RedHat"

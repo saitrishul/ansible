@@ -1,0 +1,16 @@
+-
+  name: Install software
+  hosts: all
+  tasks:
+    - name: Creating list and dictionary variables
+      set_fact:
+        one_dict:
+            something: here
+            other: there
+        one_list:
+            - a
+            - b
+            - c
+    - name: display output
+      command:
+          cmd: print "{{ one_dict.something }}"

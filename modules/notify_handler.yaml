@@ -1,0 +1,22 @@
+-
+ name: Notify handler
+ hosts: all
+ tasks:
+  - name: Template configuration file
+    file:
+      src: temp.txt
+      dest: /vim/temp.txt
+    notify:
+      - Restart apache2
+      - Restart memcached
+
+  handlers:
+    - name: Restart memcached
+      service:
+        name: memcached
+        state: restarted
+
+    - name: Restart apache2
+      service:
+        name: apache2
+        state: restarted
