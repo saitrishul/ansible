@@ -1,0 +1,16 @@
+-
+  name: Install software
+  hosts: all
+  vars:
+      packages:
+          - name: nginx
+          - name: apache2
+          - name: vim
+  tasks:
+  - name: Install "{{ item.name }}" on ubuntu
+    apt:
+        name: "{{ item.name }}" 
+        state: present
+    become: yes
+    loop: "{{ packages }}"
+    

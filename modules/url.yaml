@@ -1,0 +1,23 @@
+-
+  name: Check connection for google
+  hosts: prod
+  tasks:
+    - name: verify google.com is reacheable
+      uri:
+          url: http://www.google.com
+      register: response
+
+    - name: print response for google.com
+      debug:
+         msg: "Google is {{ 'reachable' if response.status == 200 else 'unreachable' }}"    
+
+    - name: Install nodejs
+      uri:
+          url: "https://nodejs.org/dist/v16.16.0/node-v16.16.0-linux-x64.tar.xz"
+          #dest: "/home/devops/win/node-v16.16.0.tar.xz"
+
+    - name : Install nodejs using get url module
+      get_url:
+          url: "https://nodejs.org/dist/v16.16.0/node-v16.16.0-linux-x64.tar.xz"
+          dest: "/home/devops/win/node-v16.16.0-linux.tar.xz"       
+        
