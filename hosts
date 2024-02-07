@@ -1,0 +1,9 @@
+[prod:children]
+dev
+uat
+
+[dev]
+10.0.0.6
+
+[uat]
+10.0.0.5

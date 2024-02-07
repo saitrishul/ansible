@@ -1,0 +1,14 @@
+-
+  name: Install and run services
+  tasks: 
+    - name: Install apache2 service
+      apt:
+          name: apache2
+          state: present
+      become: yes
+
+    - name: Install curl service
+      apt:
+          name: curl
+          state: latest
+      become: yes
