@@ -1,6 +1,4 @@
--
-  name: Install and run services
-  tasks: 
+--- 
     - name: Install apache2 service
       apt:
           name: apache2
