@@ -1,4 +1,5 @@
 - name: Install packages on linux
-  hosts: prod
+  hosts: uat
   roles:
       - package
+      - file

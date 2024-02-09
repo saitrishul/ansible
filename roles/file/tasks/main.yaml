@@ -1,0 +1,18 @@
+--- 
+    - name: Create a file
+      command: touch {{ file_name }}
+      args:
+          chdir: /home/devops
+      become: yes
+
+    - name: Change file permission
+      file:
+          path: /home/devops/{{ file_name }}
+          mode: '644'
+      become: yes
+
+    - name: Copy file 
+      copy:
+          src: /home/devops/{{ file_name }}
+          dest: /home/devops/win/{{ file_name }}
+      become: yes
