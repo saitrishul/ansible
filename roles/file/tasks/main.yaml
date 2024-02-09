@@ -15,4 +15,5 @@
       copy:
           src: /home/devops/{{ file_name }}
           dest: /home/devops/win/{{ file_name }}
+          remote_src: yes 
       become: yes
